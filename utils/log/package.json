@@ -1,0 +1,25 @@
+{
+  "name": "@arcane-cli/log",
+  "version": "0.0.2",
+  "description": "> TODO: description",
+  "author": "sfyr111 <sfyr111@163.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "npmlog": "^6.0.1"
+  }
+}
