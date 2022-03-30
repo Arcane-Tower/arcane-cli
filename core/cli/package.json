@@ -1,6 +1,6 @@
 {
   "name": "@arcane-cli/core",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "> TODO: description",
   "author": "sfyr111 <sfyr111@163.com>",
   "homepage": "",
@@ -23,10 +23,10 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
+    "@arcane-cli/exec": "file:../../core/exec",
+    "@arcane-cli/init": "file:../../commands/init",
     "@arcane-cli/log": "file:../../utils/log",
     "@arcane-cli/npm-info": "file:../../utils/npm-info",
-    "@arcane-cli/init": "file:../../commands/init",
-    "@arcane-cli/exec": "file:../../core/exec",
     "colors": "^1.4.0",
     "commander": "^6.2.1",
     "dotenv": "^16.0.0",

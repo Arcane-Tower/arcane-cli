@@ -1,6 +1,6 @@
 {
   "name": "@arcane-cli/exec",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "> TODO: description",
   "author": "sfyr111 <sfyr111@163.com>",
   "homepage": "https://github.com/Arcane-Tower/arcane-cli#readme",
@@ -27,7 +27,7 @@
     "url": "https://github.com/Arcane-Tower/arcane-cli/issues"
   },
   "dependencies": {
-    "@arcane-cli/package": "file:../../models/package",
-    "@arcane-cli/log": "file:../../utils/log"
+    "@arcane-cli/log": "file:../../utils/log",
+    "@arcane-cli/package": "file:../../models/package"
   }
 }
