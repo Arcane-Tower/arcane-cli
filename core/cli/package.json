@@ -25,7 +25,10 @@
   "dependencies": {
     "@arcane-cli/log": "file:../../utils/log",
     "@arcane-cli/npm-info": "file:../../utils/npm-info",
+    "@arcane-cli/init": "file:../../commands/init",
+    "@arcane-cli/exec": "file:../../core/exec",
     "colors": "^1.4.0",
+    "commander": "^6.2.1",
     "dotenv": "^16.0.0",
     "import-local": "^3.1.0",
     "minimist": "^1.2.6",

@@ -3,28 +3,69 @@
 module.exports = core;
 
 const path = require('path')
-const log = require('../../../utils/log/lib/index');
+const log = require('@arcane-cli/log');
+const exec = require('@arcane-cli/exec');
 const colors = require('colors');
 const semver = require('semver');
+const commander = require('commander');
 const userHome = require('user-home');
 const pathExists = require('path-exists').sync;
 
 const pkg = require('../package.json');
-const { LOWEST_NODE_VERSION, DEFAULT_CLI_HOME } = require('./const');
+const { DEFAULT_CLI_HOME } = require('./const');
 
-let args;
+const program = new commander.Command();
 
 async function core() {
 	try {
-		checkPkgVersion();
-		checkNodeVersion();
-		checkRoot();
-		checkUserHome();
-		checkInputArgs();
-		checkEnv();
-		await checkGlobalUpdate()
+		await prepare();
+		registerCommand();
 	} catch (e) {
 		log.error(e.message || 'cli error')
+	}
+}
+
+function registerCommand() {
+	log.verbose('当前运行目录: ', __dirname)
+	
+	program
+		.name(Object.keys(pkg.bin)[0])
+		.usage('<command> [options]')
+		.version(pkg.version)
+		.option('-d, --debug', 'debugger 模式', false)
+		.option('-tp --targetPath <targetPath>', '制定本地调试文件路径', ''); // /Users/yangran/workspace/arcane-cli/commands/init
+	
+	program
+		.command('init [projectName]')
+		.option('-f, --force', 'force create project')
+		.action(exec);
+	
+	program.on('option:debug', () => {
+		if (program.debug) {
+			process.env.LOG_LEVEL = 'verbose';
+		} else {
+			process.env.LOG_LEVEL = 'info';
+		}
+		log.level = process.env.LOG_LEVEL;
+	});
+	
+	program.on('option:targetPath', function() {
+		process.env.CLI_TARGET_PATH = program.targetPath;
+	})
+	
+	program.on('command:*', (args) => {
+		const availableCommands = program.commadns.map(cmd => cmd.name());
+		log.warn(colors.red('not found cmd: ' + args));
+		if (availableCommands.length > 0) {
+			log.info(colors.red('可用命令: ', availableCommands.join(',')));
+		}
+	});
+	
+	program.parse(process.argv);
+	
+	if (program.args && program.args.length < 1) {
+		program.outpuHelp();
+		console.log('\n');
 	}
 }
 
@@ -35,6 +76,14 @@ async function checkGlobalUpdate() {
 	if (lastVersion && semver.gt(lastVersion, currentVersion)) {
 		log.warn(colors.yellow(`${npmName} now version: ${currentVersion}, last version: ${lastVersion}\n command: npm install -g ${npmName}`))
 	}
+}
+
+async function prepare() {
+	checkPkgVersion();
+	checkRoot();
+	checkUserHome();
+	checkEnv();
+	await checkGlobalUpdate()
 }
 
 /**
@@ -70,17 +119,6 @@ function createDefaultConfig() {
 	process.env.CLI_HOME_PATH = config.home
 }
 
-function checkInputArgs() {
-	args = require('minimist')(process.argv.slice(2))
-	if (args.debug) {
-		process.env.LOG_LEVEL = 'verbose';
-	} else {
-		process.env.LOG_LEVEL = 'info';
-	}
-	log.level = process.env.LOG_LEVEL;
-	log.verbose('当前运行目录: ', __dirname)
-}
-
 function checkUserHome() {
 	if (!userHome || !pathExists(userHome)) {
 		throw new Error(colors.red('用户 user-home 不存在'))
@@ -94,12 +132,5 @@ function checkRoot() {
 }
 
 function checkPkgVersion() {
-	if (!semver.gte(process.version, LOWEST_NODE_VERSION)) {
-		throw new Error(colors.red(`arcane-cli node 版本必须大于 v${LOWEST_NODE_VERSION}`));
-	}
-}
-
-function checkNodeVersion() {
 	log.info(pkg.version)
 }
-

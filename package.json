@@ -2,7 +2,6 @@
   "name": "arcane-cli",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "devDependencies": {
     "lerna": "^3.22.1"
   },

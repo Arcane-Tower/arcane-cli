@@ -1,0 +1,33 @@
+{
+  "name": "@arcane-cli/exec",
+  "version": "0.0.3",
+  "description": "> TODO: description",
+  "author": "sfyr111 <sfyr111@163.com>",
+  "homepage": "https://github.com/Arcane-Tower/arcane-cli#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arcane-Tower/arcane-cli.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Arcane-Tower/arcane-cli/issues"
+  },
+  "dependencies": {
+    "@arcane-cli/package": "file:../../models/package",
+    "@arcane-cli/log": "file:../../utils/log"
+  }
+}
