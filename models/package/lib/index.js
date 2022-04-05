@@ -68,8 +68,6 @@ class Index {
 		await this.prepare();
 		const latestPackageVersion = await getNpmLatestVersion(this.packageName); // 最新版本
 		const latestFilePath = this.getSpecificCacheFilePath(latestPackageVersion); // 看缓存目录是否有最新本
-		console.log(latestPackageVersion, latestFilePath)
-		return
 		if (!pathExists(latestFilePath)) {
 			await npminstall({
 				root: this.targetPath,

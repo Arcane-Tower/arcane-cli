@@ -28,6 +28,15 @@
   },
   "dependencies": {
     "@arcane-cli/command": "file:../../models/command",
-    "@arcane-cli/log": "file:../../utils/log"
+    "@arcane-cli/log": "file:../../utils/log",
+    "@arcane-cli/package": "file:../../models/package",
+    "@arcane-cli/utils": "file:../../utils/utils",
+    "@arcane-cli/request": "file:../../utils/request",
+    "path-exists": "^4.0.0",
+    "fs-extra": "^9.0.1",
+    "inquirer": "^7.3.3",
+    "semver": "^7.3.4",
+    "spinner": "^0.3.4",
+    "user-home": "^2.0.0"
   }
 }

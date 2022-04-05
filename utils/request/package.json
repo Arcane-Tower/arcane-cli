@@ -1,5 +1,5 @@
 {
-  "name": "@arcane-cli/utils",
+  "name": "@arcane-cli/request",
   "version": "0.0.4",
   "description": "> TODO: description",
   "author": "sfyr111 <sfyr111@163.com>",
@@ -27,6 +27,6 @@
     "url": "https://github.com/Arcane-Tower/arcane-cli/issues"
   },
   "dependencies": {
-    "cli-spinner": "^0.2.10"
+    "axios": "^0.26.1"
   }
 }
