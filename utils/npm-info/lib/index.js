@@ -3,6 +3,7 @@
 const axios = require('axios')
 const urlJoin = require('url-join')
 const semver = require('semver')
+const log = require('@arcane-cli/log')
 
 function getNpmInfo(npmName, registry) {
 	if (!npmName) {
@@ -36,7 +37,7 @@ async function getNpmVersions(npmName, registry) {
 function getSemverVersions(baseVersion, versions) {
 	return versions
 		.filter(version => semver.satisfies(version, `^${baseVersion}`))
-		.sort((a, b) => semver.gt(b, a));
+		.sort((a, b) => semver.gt(b, a) ? 1 : -1);
 }
 
 async function getNpmSemverVersion(baseVersion, npmName, registry) {
@@ -51,8 +52,9 @@ async function getNpmSemverVersion(baseVersion, npmName, registry) {
 async function getNpmLatestVersion(npmName, registry) {
 	let versions = await getNpmVersions(npmName, registry);
 	if (versions) {
-		return versions.sort((a, b) => semver.gt(b, a))[0];
+		return versions.sort((a, b) => semver.gt(b, a) ? 1 : -1)[0];
 	}
+
 	return null;
 }
 

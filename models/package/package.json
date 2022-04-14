@@ -29,6 +29,7 @@
   "dependencies": {
     "@arcane-cli/npm-info": "file:../../utils/npm-info",
     "@arcane-cli/utils": "file:../../utils/utils",
+    "@arcane-cli/log": "file:../../utils/log",
     "fs-extra": "^9.0.1",
     "npminstall": "^4.10.0",
     "path-exists": "^4.0.0",

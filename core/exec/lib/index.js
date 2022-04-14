@@ -1,9 +1,9 @@
 'use strict';
 
 const path = require('path');
-const cp = require('child_process');
 const Package = require('@arcane-cli/package');
 const log = require('@arcane-cli/log');
+const { exec: spawn } = require('@arcane-cli/utils');
 
 // todo fetch
 const SETTINGS = {
@@ -95,15 +95,6 @@ function formatArgs(args) {
 	});
 	args[args.length - 1] = o;
 	return args;
-}
-
-function spawn(command, args, options) {
-	const win32 = process.platform === 'win32';
-	
-	const cmd = win32 ? 'cmd' : command;
-	const cmdArgs = win32 ? ['/c'].concat(command, args) : args;
-	
-	return cp.spawn(cmd, cmdArgs, options || {});
 }
 
 module.exports = exec;

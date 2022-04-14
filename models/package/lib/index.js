@@ -7,6 +7,7 @@ const pathExists = require('path-exists').sync;
 const npminstall = require('npminstall');
 const { isObject, formatPath } = require('@arcane-cli/utils');
 const { getNpmLatestVersion, getDefaultRegistry } = require('@arcane-cli/npm-info');
+const log = require('@arcane-cli/log');
 
 // npm package
 class Index {
@@ -81,7 +82,10 @@ class Index {
 				]
 			});
 			this.packageVersion = latestPackageVersion; // 更新最新版本
+		} else {
+			this.packageVersion = latestPackageVersion;
 		}
+
 	}
 	
 	getRootFilePath() {

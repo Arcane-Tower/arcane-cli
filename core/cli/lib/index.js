@@ -22,6 +22,9 @@ async function core() {
 		registerCommand();
 	} catch (e) {
 		log.error(e.message || 'cli error')
+		if (process.env.LOG_LEVEL = 'verbose') {
+			console.log(e)
+		}
 	}
 }
 
