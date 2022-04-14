@@ -1,6 +1,6 @@
 {
   "name": "@arcane-cli/npm-info",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "> TODO: description",
   "author": "sfyr111 <sfyr111@163.com>",
   "homepage": "",
@@ -20,9 +20,9 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
+    "@arcane-cli/log": "file:../../utils/log",
     "axios": "^0.26.1",
     "semver": "^7.3.5",
-    "url-join": "^4.0.0",
-    "@arcane-cli/log": "file:../../utils/log"
+    "url-join": "^4.0.0"
   }
 }
