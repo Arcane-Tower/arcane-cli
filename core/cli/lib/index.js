@@ -40,7 +40,12 @@ function registerCommand() {
 	
 	program
 		.command('init [projectName]')
-		.option('-f, --force', 'force create project')
+		.option('-f, --force', '是否强制初始化项目')
+		.action(exec);
+	
+	program
+		.command('add [templateName]')
+		.option('-f, --force', '是否强制添加代码')
 		.action(exec);
 	
 	program.on('option:debug', () => {

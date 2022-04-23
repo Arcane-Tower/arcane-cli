@@ -7,8 +7,10 @@ const { exec: spawn } = require('@arcane-cli/utils');
 
 // todo fetch
 const SETTINGS = {
-	// init: '@arcane-cli/log'
-	init: '@vue/shared'
+	init: '@arcane-cli/init',
+	add: '@arcane-cli/add',
+	publish: '@arcane-cli/publish'
+	// init: '@vue/shared'
 }
 
 const CACHE_DIR = 'dependencies';

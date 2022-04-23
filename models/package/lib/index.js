@@ -85,7 +85,7 @@ class Index {
 		} else {
 			this.packageVersion = latestPackageVersion;
 		}
-
+		log.verbose('current npm package version', this.packageVersion)
 	}
 	
 	getRootFilePath() {

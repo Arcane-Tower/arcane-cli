@@ -30,6 +30,23 @@ function sleep(timeout = 1000) {
 	return new Promise(resolve => setTimeout(resolve, timeout));
 }
 
+function objToArray(o) {
+	const arr = [];
+	Object.keys(o).forEach(key => {
+		arr.push({
+			key,
+			value: o[key],
+		});
+	});
+	return arr;
+}
+
+function arrayToObj(arr) {
+	const o = {};
+	arr.forEach(item => o[item.key] = item.value);
+	return o;
+}
+
 function exec(command, args, options) {
 	const win32 = process.platform === 'win32';
 	
@@ -58,4 +75,6 @@ module.exports = {
 	spinnerStart,
 	exec,
 	execAsync,
+	objToArray,
+	arrayToObj,
 };
