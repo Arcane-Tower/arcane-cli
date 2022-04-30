@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "@arcane-cli/exec": "file:../../core/exec",
-    "@arcane-cli/init": "file:../../commands/init",
     "@arcane-cli/log": "file:../../utils/log",
     "@arcane-cli/npm-info": "file:../../utils/npm-info",
     "colors": "^1.4.0",
