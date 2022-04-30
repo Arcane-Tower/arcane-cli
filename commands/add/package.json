@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@arcane-cli/command": "file:../../models/command",
+    "@arcane-cli/request": "file:../../utils/request",
     "@arcane-cli/log": "file:../../utils/log",
     "@arcane-cli/package": "file:../../models/package",
     "@arcane-cli/utils": "file:../../utils/utils",

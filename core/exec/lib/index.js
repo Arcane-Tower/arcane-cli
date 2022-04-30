@@ -62,7 +62,7 @@ async function exec() {
 		try {
 			// require(rootFile).call(null, Array.from(arguments)); // 当前进程
 			// return
-
+			// return console.log(arguments[1]['_name']) // 识别 指令
 			// 多进程执行
 			const args = formatArgs([...arguments]);
 			log.verbose(args.length);
