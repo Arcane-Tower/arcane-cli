@@ -1,6 +1,6 @@
 {
   "name": "@arcane-cli/add",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "arcane-cli add",
   "author": "sfyr111 <sfyr111@163.com>",
   "homepage": "https://github.com/Arcane-Tower/arcane-cli#readme",
@@ -28,9 +28,9 @@
   },
   "dependencies": {
     "@arcane-cli/command": "file:../../models/command",
-    "@arcane-cli/request": "file:../../utils/request",
     "@arcane-cli/log": "file:../../utils/log",
     "@arcane-cli/package": "file:../../models/package",
+    "@arcane-cli/request": "file:../../utils/request",
     "@arcane-cli/utils": "file:../../utils/utils",
     "ejs": "^3.1.6",
     "fs-extra": "^10.0.0",
