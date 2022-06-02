@@ -24,7 +24,7 @@ async function exec() {
 	log.verbose('homePath:', homePath);
 	
 	const cmdObj = arguments[arguments.length - 1]; // commander 对象为最后一个
-	const cmdName = cmdObj.name();
+	const cmdName = cmdObj.name(); // init add publish
 	const packageName = SETTINGS[cmdName];
 	const packageVersion = 'latest'; // 指定版本
 	// const packageVersion = '3.0.3'; // 指定版本

@@ -48,6 +48,13 @@ function registerCommand() {
 		.option('-f, --force', '是否强制添加代码')
 		.action(exec);
 	
+	program
+		.command('publish')
+		.option('--refreshServer', '强制更新远程Git仓库')
+		.option('--refreshToken', '强制更新远程仓库token')
+		.option('--refreshOwner', '强制更新远程仓库类型')
+		.action(exec);
+	
 	program.on('option:debug', () => {
 		if (program.debug) {
 			process.env.LOG_LEVEL = 'verbose';
@@ -62,7 +69,7 @@ function registerCommand() {
 	})
 	
 	program.on('command:*', (args) => {
-		const availableCommands = program.commadns.map(cmd => cmd.name());
+		const availableCommands = program.commands.map(cmd => cmd.name());
 		log.warn(colors.red('not found cmd: ' + args));
 		if (availableCommands.length > 0) {
 			log.info(colors.red('可用命令: ', availableCommands.join(',')));
